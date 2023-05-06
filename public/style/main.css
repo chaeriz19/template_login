@@ -1,0 +1,47 @@
+body {
+    width: 100%;
+    height: 100vh;
+}
+#form-login-container {
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+}
+#form-input {
+    border: solid grey 0.5px;
+    border-radius: 0.25rem;
+    margin-bottom: 0.75rem;
+    padding: 1rem;
+    height: 10px;
+    width: 250px;
+}
+#form-submit {
+    cursor: pointer;
+    border-radius: 0.25rem;
+    padding: .5rem;
+    height: 40px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+}
+    #form-submit:hover {
+        background-color: rgb(26, 25, 25);
+    }
+#container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+}
+#form-title {
+    margin-bottom: 10px;
+    font-weight: 150;
+}
+#form-extra {
+    color: grey;
+    font-size: 15px;
+    margin-top: 15px;
+    color: var(--primary);
+}
