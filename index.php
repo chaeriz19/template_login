@@ -7,6 +7,7 @@
 <body>
     <?php
     require_once('app/lib/controller.php');
+    require_once('app/lib/account.php');
     $c = new Controller(); $c->controller();
     ?>
     <script src="public/scripts/handleNotifications.js"></script>

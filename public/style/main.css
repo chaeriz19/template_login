@@ -45,3 +45,11 @@ body {
     margin-top: 15px;
     color: var(--primary);
 }
+#form-svg {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    position:absolute;
+    margin-top: 12px;
+    margin-left: 15rem;
+}
