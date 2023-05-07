@@ -12,6 +12,6 @@ class Controller {
         return $url[$i];
     }
     public function redirect($a) {
-        header("Location: /$a");
+        header("Location: $a");
     }
 }

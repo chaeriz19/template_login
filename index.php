@@ -5,12 +5,15 @@
     <link rel="stylesheet" href="public/style/style.css">
 </head>
 <body>
+    <script src="public/scripts/handleNotifications.js"></script>
+    <script src="public/scripts/data.js"></script>
     <?php
+    session_start();
     require_once('app/lib/controller.php');
     require_once('app/lib/account.php');
     $c = new Controller(); $c->controller();
+    print_r($_SESSION);
     ?>
-    <script src="public/scripts/handleNotifications.js"></script>
-    <script src="public/scripts/data.js"></script>
+    
 </body>
 </html>

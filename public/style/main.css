@@ -53,3 +53,16 @@ body {
     margin-top: 12px;
     margin-left: 15rem;
 }
+
+
+
+
+
+#notification {
+    top: 85%;
+    left: 20%;
+    width: 100%;
+    border-radius: 0.25rem;
+    padding: 10px 0px 10px 0px
+
+}

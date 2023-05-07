@@ -9,8 +9,7 @@
 <body>
     <?php 
     $a = new Account(); 
-    if (isset($_POST['submit-login'])) {ECHO $a->auth($_POST['username'], $_POST['password']);}
-    if (isset($_POST['submit-register'])) {$a->register();}
+    if (isset($_POST['submit-login'])) {ECHO $a->check($_POST['username'], $_POST['password']);}
     ?>
     <div id="container">
     <div id="login-form">
@@ -24,10 +23,11 @@
                 </g>
                 </svg>
                 <input type="password" autocomplete="off" name="password" id="form-input" placeholder="password">
-            
+                
             </div>
             
             <button id="form-submit" name="submit-login" value="true">Login</button>
+            <div id="notification"></div>
             <a id="form-extra">Forgot password</a>
             <a id="form-extra">Register</a>  
         </form>
