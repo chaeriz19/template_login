@@ -9,7 +9,8 @@
 <body>
     <?php 
     $a = new Account(); 
-    if (isset($_POST['submit-login'])) {ECHO $a->check($_POST['username'], $_POST['password']);}
+    if (isset($_POST['submit-login'])) {echo $a->check($_POST['username'], $_POST['password']);}
+    if (isset($_POST['submit-logout'])) {$a->logout();}
     ?>
     <div id="container">
     <div id="login-form">
@@ -30,6 +31,11 @@
             <div id="notification"></div>
             <a id="form-extra">Forgot password</a>
             <a id="form-extra">Register</a>  
+        </form>
+    </div>
+    <div id="logout-form">
+        <form method="POST">
+            <button name="submit-logout">Logout</button>
         </form>
     </div>
     <div id="register-form"></div>
