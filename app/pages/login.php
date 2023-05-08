@@ -11,6 +11,8 @@
     $a = new Account(); 
     if (isset($_POST['submit-login'])) {echo $a->check($_POST['username'], $_POST['password']);}
     if (isset($_POST['submit-logout'])) {$a->logout();}
+    if (isset($_POST['submit-register'])) {echo 'register trigger';}
+
     ?>
     <div id="container">
     <div id="login-form">
@@ -28,6 +30,8 @@
             </div>
             
             <button id="form-submit" name="submit-login" value="true">Login</button>
+            <button id="form-submit-two" name="submit-register" value="true">Register</button>
+
             <div id="notification"></div>
             <a id="form-extra">Forgot password</a>
             <a id="form-extra">Register</a>  

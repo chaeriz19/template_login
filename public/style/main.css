@@ -8,7 +8,7 @@ body {
     flex-direction: column;
 }
 #form-input {
-    border: solid grey 0.5px;
+    border: solid grey 0.25px;
     border-radius: 0.25rem;
     margin-bottom: 0.75rem;
     padding: 1rem;
@@ -25,9 +25,20 @@ body {
     color: white;
     font-weight: 600;
 }
-    #form-submit:hover {
-        background-color: rgb(26, 25, 25);
+    #form-submit:hover,#form-submit-two:hover {
+        opacity: 75%;
     }
+#form-submit-two {
+    cursor: pointer;
+    border-radius: 0.25rem;
+    padding: .5rem;
+    height: 40px;
+    width: 100%;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    margin-top: 0.75rem;
+}
 #container {
     display: flex;
     align-content: center;

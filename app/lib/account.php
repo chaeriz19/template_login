@@ -16,21 +16,21 @@ class Account {
         $_SESSION['logged_in'] = true;
     }
     function check($username, $password){
-        $un = $this->db->connect()->real_escape_string($username);
         $result = $this->db->connect()->prepare("SELECT * FROM `users` WHERE `un` = ?");
         $result->bind_param("s", $username);
         $result->execute();
-        if ($result->num_rows !== 1) {return $result->num_rows();}
-        $row = $result->get_result()->fetch_assoc();
+        $rows = $result->get_result();
+        if ($rows->num_rows !== 1){return print_r($rows);}
+        $row = $rows->fetch_assoc();
         $prot_pass = $row['pw'];
         if (!($password == $prot_pass)) {return '2';}
-        $this->auth($un, $row['id']);
-        $this->con->redirect('home');
+        $this->auth($row['un'], $row['id']);
         return 'Successfully Authenticated User = '. $row['id'];
     }
     function logout() {
         session_destroy();
         session_reset();
+        $this->con->redirect("login");
     }
     // Queries
     function queryRows() {
