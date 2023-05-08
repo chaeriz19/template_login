@@ -27,6 +27,23 @@ class Account {
         $this->auth($row['un'], $row['id']);
         $this->con->redirect("home");
     }
+    function register($dp, $un, $pw) {
+        if ((empty($dp) || (empty($un)) || (empty($pw)))) return 'empty';
+        // if ($this->checkifuserexists($un)) {return false;}
+        if ($this->checkifuserexists($un)) {
+            $prepare = $this->db->connect()->prepare("INSERT INTO `users` (`id`, `dn`, `un`, `pw`) VALUES (NULL, ?, ?, ?);");
+            $prepare->bind_param("sss", $dp,$un,$pw);
+            $prepare->execute();
+            $this->con->redirect("home");
+        } 
+    }
+    function checkifuserexists($un) {
+        $prepare = $this->db->connect()->prepare("SELECT * FROM `users` WHERE `un` = ?");
+        $prepare->bind_param("s", $un);
+        $prepare->execute();
+        $result = $prepare->get_result();
+        if ($result->num_rows >= 1) {return false;} else {return true;}
+    }
     function logout() {
         session_destroy();
         session_reset();
@@ -41,7 +58,7 @@ class Account {
     function queryUsername($id) {
         $results = $this->db->connect()->query("SELECT * FROM `users` WHERE `id` = $id");
         $row = $results->fetch_assoc();
-        return '(img?) '.$row['dn'] .  ' @'.$row['un'];
+        return $row['dn'] .   ' <a href="user/'.$row['un'].'">'.'@'.$row['un'].'</a>';
     }
     
 }

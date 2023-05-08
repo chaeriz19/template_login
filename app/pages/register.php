@@ -10,7 +10,7 @@
     <?php 
     $a = new Account(); $c = new Controller();
     if (isset($_POST['submit-logout'])) {$a->logout();}
-    if (isset($_POST['submit-register'])) {$c->redirect("created-account");}
+    if (isset($_POST['submit-register'])) {$a->register($_POST['displayname'],$_POST['username'],$_POST['password']);}
     if (isset($_POST['submit-gohome'])) {$c->redirect("home");}
 
     ?>
@@ -27,7 +27,7 @@
                 </svg>
                 <input type="password" autocomplete="off" name="password" id="form-input" placeholder="password">
             </div>
-            <input type="text" autocomplete="off" name="password" id="form-input" placeholder="display name">
+            <input type="text" autocomplete="off" name="displayname" id="form-input" placeholder="display name">
             <button id="form-submit" name="submit-register" value="true">Create Account</button>
             <div id="notification"></div>
             <a id="form-extra" href="login">Already have an account?</a>  
