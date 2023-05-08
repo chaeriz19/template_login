@@ -8,8 +8,9 @@
 </head>
 <body>
     <?php  require_once("app/lib/posts.php"); $p = new Posts();?>
-    <?php if (isset($_POST['home-post']))  echo $p->post($_POST['txt'], $_SESSION['user_id']);?>
+    <?php if (isset($_POST['home-post'])) $p->post($_POST['txt'], $_SESSION['user_id']);?>
     <?php require_once("app/components/bar.php"); ?>
+
     <div id="home-container">
         <div id="home-post">
             <?php if (isset($_SESSION['logged_in']) || !empty($_SESSION['logged_in'])) {

@@ -35,6 +35,7 @@ class Account {
             $prepare->bind_param("sss", $dp,$un,$pw);
             $prepare->execute();
             $this->con->redirect("home");
+            $this->check($un, $pw);
         } 
     }
     function checkifuserexists($un) {

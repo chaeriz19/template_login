@@ -12,10 +12,11 @@ class Posts {
     }
 
     public function post($msg, $id) {
+        $msg = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $msg);
+        if ($msg == null | $msg == "") {return false;}
         $prepare = $this->db->connect()->prepare("INSERT INTO `posts` (`id`, `txt`, `creator_id`, `date`) VALUES (NULL, ?, ?, current_timestamp());");
         $prepare->bind_param("si", $msg, $id);
         $prepare->execute();
-        return $msg.$id . " Executed to database. refreshing";
     }
 
     // Queries

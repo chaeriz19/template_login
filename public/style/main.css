@@ -7,6 +7,9 @@ body {
     display: flex;
     flex-direction: column;
 }
+button {
+    cursor: pointer;
+}
 #form-input {
     border: solid grey 0.25px;
     border-radius: 0.25rem;
@@ -84,6 +87,8 @@ body {
     margin: 0 auto;
     text-align: center;
     flex-direction: column;
+    min-width: 150px;
+    width: 500px;
 }
 
 #home-post-form {
@@ -116,4 +121,8 @@ body {
     padding: 1rem;
     border: 1px solid;
     overflow: hidden;
+}
+#links {
+    display: flex;
+    flex-direction: column;
 }
