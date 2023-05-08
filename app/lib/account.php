@@ -20,12 +20,12 @@ class Account {
         $result->bind_param("s", $username);
         $result->execute();
         $rows = $result->get_result();
-        if ($rows->num_rows !== 1){return print_r($rows);}
+        if ($rows->num_rows !== 1){return false;}
         $row = $rows->fetch_assoc();
         $prot_pass = $row['pw'];
-        if (!($password == $prot_pass)) {return '2';}
+        if (!($password == $prot_pass)) {return false;}
         $this->auth($row['un'], $row['id']);
-        return 'Successfully Authenticated User = '. $row['id'];
+        $this->con->redirect("home");
     }
     function logout() {
         session_destroy();
@@ -37,6 +37,11 @@ class Account {
         $query = "SELECT * FROM `users`";
         $results = $this->db->connect()->query($query);
         return $results->num_rows;
+    }
+    function queryUsername($id) {
+        $results = $this->db->connect()->query("SELECT * FROM `users` WHERE `id` = $id");
+        $row = $results->fetch_assoc();
+        return '(img?) '.$row['dn'] .  ' @'.$row['un'];
     }
     
 }

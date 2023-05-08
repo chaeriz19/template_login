@@ -9,16 +9,15 @@
 <body>
     <?php 
     $a = new Account(); $c = new Controller();
-    if (isset($_POST['submit-login'])) {$a->check($_POST['username'], $_POST['password']);}
     if (isset($_POST['submit-logout'])) {$a->logout();}
-    if (isset($_POST['submit-register'])) {$c->redirect("register");}
+    if (isset($_POST['submit-register'])) {$c->redirect("created-account");}
     if (isset($_POST['submit-gohome'])) {$c->redirect("home");}
 
     ?>
     <div id="container">
     <div id="form">
         <form method="POST" id="form-container">
-            <h1 id="form-title">Login</h1>
+            <h1 id="form-title">Register</h1>
             <input type="text" autocomplete="off" name="username" id="form-input" placeholder="username">
             <div>
                 <svg id="form-svg" width='20' height='20' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
@@ -27,14 +26,11 @@
                 </g>
                 </svg>
                 <input type="password" autocomplete="off" name="password" id="form-input" placeholder="password">
-                
             </div>
-            
-            <button id="form-submit" name="submit-login" value="true" >Login</button>
-            <button id="form-submit-two" name="submit-register" value="true">Register</button>
-
+            <input type="text" autocomplete="off" name="password" id="form-input" placeholder="display name">
+            <button id="form-submit" name="submit-register" value="true">Create Account</button>
             <div id="notification"></div>
-            <a id="form-extra" href="forgot-password">Forgot password</a> 
+            <a id="form-extra" href="login">Already have an account?</a>  
         </form>
     </div>
     <div id="logout-form">
@@ -46,8 +42,6 @@
     </div>
     <div id="register-form"></div>
     </div>
-   
-
     <script src="public/scripts/handleLogin.js"></script>
 </body>
 </html>
