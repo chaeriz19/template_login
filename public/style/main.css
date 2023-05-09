@@ -175,5 +175,7 @@ a {
     padding: 0.25rem .5rem 0.25rem .5rem;
 }
 .liked {
-    color: red;
+    border-radius: 0.25rem;
+color: white;
+    background-color: red;
 }

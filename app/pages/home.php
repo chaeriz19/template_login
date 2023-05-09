@@ -9,6 +9,7 @@
 <body>
     <?php  require_once("app/lib/posts.php"); $p = new Posts();?>
     <?php if (isset($_POST['home-post'])) $p->post($_POST['txt'], $_SESSION['user_id']);?>
+    <?php include_once("app/components/handleLikes.php"); ?>
     
     <div id="container">
         <?php require_once("app/components/bar.php"); ?>

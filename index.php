@@ -12,8 +12,6 @@
     <script src="public/scripts/data.js"></script>
     <?php
     session_start();
-    print_r($_SESSION);
-
     require_once('app/lib/controller.php');
     require_once('app/lib/account.php');
     $c = new Controller(); $c->controller();
