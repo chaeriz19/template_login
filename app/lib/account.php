@@ -59,7 +59,7 @@ class Account {
     function queryUsername($id) {
         $results = $this->db->connect()->query("SELECT * FROM `users` WHERE `id` = $id");
         $row = $results->fetch_assoc();
-        return $row['dn'] .   ' <a href="user/'.$row['un'].'">'.'@'.$row['un'].'</a>';
+        return $row['dn'] .   ' <a href="user?user='.$row['un'].'">'.'@'.$row['un'].'</a>';
     }
     
 }

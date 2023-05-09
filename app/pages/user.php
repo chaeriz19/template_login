@@ -13,16 +13,8 @@
     <div id="container">
         <?php require_once("app/components/bar.php"); ?>
         <div id="home-container">
-        
-            <div id="home-post">
-                <?php if (isset($_SESSION['logged_in']) || !empty($_SESSION['logged_in'])) {
-                    echo '<form method="POST" id="home-post-form">
-                    <input id="home-post-input" type="text" name="txt" id="" placeholder="What are you thinking about?"> 
-                    <button id="home-post-button" name="home-post">Post</button>
-                    </form>';}?>
-            </div>
             <div id="home-feed"><?php
-            echo $p->queryHomeFeed();
+            echo $p->queryUserFeed($_GET['user']);
             ?></div>
         </div>
     </div>
