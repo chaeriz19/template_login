@@ -43,7 +43,7 @@ class Account {
         $prepare->bind_param("s", $un);
         $prepare->execute();
         $result = $prepare->get_result();
-        $prepare->close();
+        $prepare->close();   
         if ($result->num_rows >= 1) {return false;} else {return true;}
     }
     function logout() {

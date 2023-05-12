@@ -41,10 +41,6 @@ class Posts {
         return $this->output;
     }
 
-    ///////////////////////////////////////////////////////////////////////////
-    ///// QUERIES /////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////
-
     // FETCH ALL THE LAST POSTS
     public function queryHomeFeed(){
         $result = $this->db->connect()->query("SELECT * FROM `posts`");
@@ -79,14 +75,12 @@ class Posts {
         $result = $this->db->connect()->query("SELECT likes,u_id FROM `likes` WHERE `p_id` = $post_id");
         $u_id = $this->db->connect()->query("SELECT likes,u_id FROM `likes` WHERE `p_id` = $post_id AND `u_id` = $this->user_id");
         if (isset($_SESSION['logged_in'])){
-            if ($result->num_rows == 0) {return '<button class="" value="'.$post_id.'"name="like-submit" id="post-likes">0 Likes</button>';}
+            if ($result->num_rows == 0) {return '<button class="" value="'.$post_id.'" name="like-submit" id="post-likes">0 Likes</button>';}
             while ($row = $u_id->fetch_assoc()) {
             if ($row['u_id'] == $this->user_id) {
-                return '<button value="'.$post_id.'"name="like-submit" class="liked" id="post-likes">'.$result->num_rows.' Likes</button>'
-                ;
+                return '<button value="'.$post_id.'"name="like-remove" class="liked" id="post-likes">'.$result->num_rows.' Likes</button>';
             } else {
-                return '<button name="like-submit" value="'.$post_id.'" class="" id="post-likes">'.$result->num_rows.' Likes</button>'
-                ;
+                return '<button name="like-submit" value="'.$post_id.'" class="" id="post-likes">'.$result->num_rows.' Likes</button>';
             }
         }
         } else {
