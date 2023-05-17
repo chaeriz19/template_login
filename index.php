@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="public/style/main.css">
+    <script src="public/scripts/errorcheck.js"></script>
 </head>
 <body>
     <script>if (window.history.replaceState){window.history.replaceState(null, null, window.location.href);}</script>
