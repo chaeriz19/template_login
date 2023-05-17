@@ -7,6 +7,6 @@
     <title>404</title>
 </head>
 <body>
-    Oops, this page doesnt exist on this webserver.
+    Oops, this page doesnt exist on this webserver. <br>
 </body>
 </html>
