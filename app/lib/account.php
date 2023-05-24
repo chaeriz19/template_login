@@ -22,10 +22,11 @@ class Account {
         $this->con->redirect("home");       
     }
     function register($dp, $un, $pw) {
-        if ((empty($dp)) || (empty($un)) || (empty($pw))) {
-            $this->error = "Please fill in all your information";
-            return false;
-        }
+        // password error messages:
+        if ((empty($dp)) || (empty($un)) || (empty($pw))) {$this->error = "Please fill in all your information";return false;}
+        if (5 >= strlen($pw)) {$this->error = "Please use a stronger password (at least 5 characters or more)"; return false;}
+        if (!preg_match('/[A-Z]/', $pw)) {$this->error = "Please use at least one capital letter in your password"; return false;}
+        if (!preg_match('/\d/', $pw)) {$this->error = "Please use at least one digit in your password"; return false;}
         $prot_pass = password_hash($pw, PASSWORD_DEFAULT);
         if ($this->checkifuserexists($un)) {
             $this->db->execute(1, 0, $dp, $un, $prot_pass); // execute database query to database.php
